@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 
 export default function ScrollProgress() {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -48,12 +47,19 @@ export default function ScrollProgress() {
               transform: 'translate(-50%, 50%)'
             }}
             >
-            <Image 
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
               src="/projects/car.svg" 
               alt="Racing car" 
-              width={200}
-              height={200}
               className="opacity-100"
+              style={{ 
+                width: '200px', 
+                height: '200px',
+                minWidth: '200px',
+                minHeight: '200px',
+                maxWidth: 'none',
+                maxHeight: 'none'
+              }}
             />
             </div>
         </div>
