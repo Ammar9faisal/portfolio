@@ -1,0 +1,272 @@
+@import "tailwindcss";
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #000000;
+    --foreground: #ffffff;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+/* F1 Racing Animations */
+@keyframes race-stripe {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100vw); }
+}
+
+@keyframes speed-lines {
+  0% { opacity: 0; transform: translateX(-20px); }
+  50% { opacity: 1; }
+  100% { opacity: 0; transform: translateX(20px); }
+}
+
+@keyframes checkered-flag {
+  0% { background-position: 0 0; }
+  100% { background-position: 20px 20px; }
+}
+
+@keyframes engine-rev {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+@keyframes pit-stop {
+  0% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-5px) rotate(-2deg); }
+  75% { transform: translateY(-5px) rotate(2deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+@keyframes telemetry-pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+@keyframes circuit-trace {
+  0% { stroke-dashoffset: 1000; }
+  100% { stroke-dashoffset: 0; }
+}
+
+/* Generate fill animations for GitHub contributions */
+@keyframes fill-0 { from { width: 0%; } to { width: 85%; } }
+@keyframes fill-1 { from { width: 0%; } to { width: 92%; } }
+@keyframes fill-2 { from { width: 0%; } to { width: 78%; } }
+@keyframes fill-3 { from { width: 0%; } to { width: 95%; } }
+@keyframes fill-4 { from { width: 0%; } to { width: 67%; } }
+@keyframes fill-5 { from { width: 0%; } to { width: 89%; } }
+@keyframes fill-6 { from { width: 0%; } to { width: 91%; } }
+@keyframes fill-7 { from { width: 0%; } to { width: 73%; } }
+@keyframes fill-8 { from { width: 0%; } to { width: 88%; } }
+@keyframes fill-9 { from { width: 0%; } to { width: 94%; } }
+@keyframes fill-10 { from { width: 0%; } to { width: 76%; } }
+@keyframes fill-11 { from { width: 0%; } to { width: 82%; } }
+
+/* Custom Racing Stripes */
+.racing-stripe {
+  position: relative;
+  overflow: hidden;
+}
+
+.racing-stripe::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(239, 68, 68, 0.5), transparent);
+  animation: race-stripe 2s infinite;
+}
+
+/* Speed Lines Effect */
+.speed-lines {
+  position: relative;
+}
+
+.speed-lines::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ef4444, transparent);
+  animation: speed-lines 1.5s infinite;
+  transform: translateY(-50%);
+}
+
+/* Checkered Flag Pattern */
+.checkered-bg {
+  background-image: 
+    linear-gradient(45deg, #000 25%, transparent 25%), 
+    linear-gradient(-45deg, #000 25%, transparent 25%), 
+    linear-gradient(45deg, transparent 75%, #000 75%), 
+    linear-gradient(-45deg, transparent 75%, #000 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  animation: checkered-flag 1s linear infinite;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ef4444;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #dc2626;
+}
+
+/* Selection color */
+::selection {
+  background: #ef4444;
+  color: white;
+}
+
+/* F1 Interactive Elements */
+.f1-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.f1-button:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.5s;
+}
+
+.f1-button:hover:before {
+  left: 100%;
+}
+
+/* Racing Card Hover Effects */
+.racing-card {
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.racing-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  animation: engine-rev 0.6s ease-in-out;
+}
+
+/* Telemetry Data Animation */
+.telemetry-bar {
+  background: linear-gradient(45deg, #ef4444, #dc2626, #b91c1c);
+  background-size: 200% 200%;
+  animation: telemetry-pulse 2s ease-in-out infinite;
+}
+
+/* Circuit Pattern */
+.circuit-pattern {
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(239, 68, 68, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(239, 68, 68, 0.1) 0%, transparent 50%);
+}
+
+/* Pit Stop Animation */
+.pit-stop:hover {
+  animation: pit-stop 0.8s ease-in-out;
+}
+
+/* LED Status Indicators */
+.led-indicator {
+  box-shadow: 0 0 10px currentColor;
+  animation: telemetry-pulse 1.5s ease-in-out infinite;
+}
+
+/* Racing Typography */
+.racing-font {
+  font-family: 'Orbitron', 'Monaco', 'Menlo', monospace;
+  letter-spacing: 0.1em;
+}
+
+/* Speed Blur Effect */
+.speed-blur {
+  filter: blur(0px);
+  transition: filter 0.3s ease;
+}
+
+.speed-blur:hover {
+  filter: blur(0.5px);
+  animation: speed-lines 0.5s ease-in-out;
+}
+
+/* F1 Grid System */
+.f1-grid {
+  background: 
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Performance Gauge */
+.performance-gauge {
+  background: conic-gradient(
+    from 0deg,
+    #ef4444 0deg 120deg,
+    #eab308 120deg 240deg,
+    #22c55e 240deg 360deg
+  );
+}
+
+/* Racing Cursor */
+body {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23ef4444" d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9Z"/></svg>') 12 12, auto;
+}
+
+button, a {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23ef4444" d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9Z"/></svg>') 12 12, pointer;
+}
+
+/* Project Image Effects */
+.clip-triangle {
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+/* Project Image Fallback */
+.project-image-fallback {
+  background: linear-gradient(135deg, 
+    rgba(239, 68, 68, 0.2) 0%, 
+    rgba(0, 0, 0, 0.8) 50%, 
+    rgba(239, 68, 68, 0.1) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: 'Monaco', monospace;
+  font-size: 14px;
+}
