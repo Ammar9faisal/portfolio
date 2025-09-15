@@ -3,7 +3,7 @@ class F1SoundEngine {
 
   constructor() {
     if (typeof window !== 'undefined') {
-      this.audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+      this.audioContext = new (window.AudioContext || (window as typeof window & { webkitAudioContext: typeof AudioContext }).webkitAudioContext)();
     }
   }
 
@@ -135,7 +135,7 @@ export const playF1Sound = (soundType: string) => {
       default:
         console.log('Unknown F1 sound type:', soundType);
     }
-  } catch (error) {
+  } catch {
     // Silently handle audio errors
     console.log('Audio not available');
   }

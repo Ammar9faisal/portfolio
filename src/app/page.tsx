@@ -1,8 +1,6 @@
 
 'use client';
 
-import { useState } from 'react';
-import F1Loading from '../components/F1Loading';
 import F1Header from '../components/F1Header';
 import DriverHero from '../components/DriverHero';
 import ProjectsSection from '../components/ProjectsSection';
@@ -11,13 +9,6 @@ import ContactSection from '../components/ContactSection';
 import ScrollProgress from '../components/ScrollProgress';
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [isReady, setIsReady] = useState(false);
-
-  const handleLoadingComplete = () => {
-    setIsLoading(false);
-    setTimeout(() => setIsReady(true), 500);
-  };
 
 
   return (
@@ -26,7 +17,7 @@ export default function Home() {
       <ScrollProgress />
       
       {/* F1 Cockpit Header */}
-      <F1Header isReady={isReady} />
+      <F1Header isReady={true} />
       
       {/* Main Content */}
       <main className="relative">

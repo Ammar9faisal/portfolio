@@ -28,7 +28,7 @@ export default function F1Loading({ onComplete }: F1LoadingProps) {
     const playSound = (step: number) => {
       try {
         // Create audio context for sound effects
-        const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+        const audioContext = new (window.AudioContext || (window as typeof window & { webkitAudioContext: typeof AudioContext }).webkitAudioContext)();
         
         if (step >= 1 && step <= 5) {
           // Light activation sound - distinctive F1 beep
@@ -74,7 +74,7 @@ export default function F1Loading({ onComplete }: F1LoadingProps) {
           oscillator2.start(audioContext.currentTime);
           oscillator2.stop(audioContext.currentTime + 0.5);
         }
-      } catch (error) {
+      } catch {
         // Silently handle audio context errors
         console.log('Audio context not available');
       }

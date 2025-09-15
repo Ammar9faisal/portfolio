@@ -148,7 +148,7 @@ export default function ContactSection() {
           <h2 className="text-5xl font-bold text-white mb-4 tracking-wide font-mono">
             PIT CREW <span className="text-red-500">COMMUNICATIONS</span>
           </h2>
-          <p className="text-gray-400 text-xl">Ready for your next project? Let's establish radio contact!</p>
+          <p className="text-gray-400 text-xl">Ready for your next project? Let&apos;s establish radio contact!</p>
           <div className="w-32 h-1 bg-red-500 mx-auto mt-6"></div>
         </div>
 
