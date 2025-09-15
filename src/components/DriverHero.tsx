@@ -27,71 +27,71 @@ export default function DriverHero() {
   ];
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center pt-20 px-4">
+    <section id="hero" className="min-h-screen flex items-center justify-center pt-16 sm:pt-20 px-4">
       <div className="max-w-7xl mx-auto w-full">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           
           {/* Driver Card */}
-          <div className="relative">
-            <div className="bg-gradient-to-br from-gray-900 to-black rounded-3xl p-8 border-2 border-red-600 shadow-2xl">
+          <div className="relative order-2 lg:order-1">
+            <div className="bg-gradient-to-br from-gray-900 to-black rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 border-2 border-red-600 shadow-2xl">
               {/* Card Header */}
-              <div className="flex items-center justify-between mb-8">
-                <div className="flex items-center space-x-4">
-                  <div className="w-20 h-20 bg-gradient-to-br from-red-600 to-red-800 rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold text-3xl">AF</span>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 sm:mb-8 gap-4 sm:gap-0">
+                <div className="flex items-center space-x-3 sm:space-x-4">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-red-600 to-red-800 rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-white font-bold text-2xl sm:text-3xl">AF</span>
                   </div>
-                  <div>
-                    <h1 className="text-white text-3xl font-bold tracking-wide">AMMAR FAISAL</h1>
-                    <p className="text-red-400 text-lg font-mono">SOFTWARE ENGINEER</p>
+                  <div className="min-w-0 flex-1">
+                    <h1 className="text-white text-xl sm:text-2xl lg:text-3xl font-bold tracking-wide">AMMAR FAISAL</h1>
+                    <p className="text-red-400 text-sm sm:text-base lg:text-lg font-mono">SOFTWARE ENGINEER</p>
                   </div>
                 </div>
-                <div className="text-right">
-                  <div className="text-red-500 text-6xl font-bold font-mono">01</div>
+                <div className="text-right sm:text-right self-start sm:self-auto">
+                  <div className="text-red-500 text-4xl sm:text-5xl lg:text-6xl font-bold font-mono">01</div>
                   <div className="text-gray-400 text-xs">DRIVER #</div>
                 </div>
               </div>
 
               {/* Driver Stats */}
-              <div className="grid grid-cols-2 gap-4 mb-8">
-                <div className="bg-black/50 rounded-lg p-4 border border-gray-700">
-                  <div className="text-gray-400 text-sm">NATIONALITY</div>
-                  <div className="text-white font-semibold">🇨🇦 CANADA</div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
+                <div className="bg-black/50 rounded-lg p-3 sm:p-4 border border-gray-700">
+                  <div className="text-gray-400 text-xs sm:text-sm">NATIONALITY</div>
+                  <div className="text-white font-semibold text-sm sm:text-base">🇨🇦 CANADA</div>
                 </div>
-                <div className="bg-black/50 rounded-lg p-4 border border-gray-700">
-                  <div className="text-gray-400 text-sm">TEAM</div>
-                  <div className="text-white font-semibold">YORK UNIVERSITY</div>
+                <div className="bg-black/50 rounded-lg p-3 sm:p-4 border border-gray-700">
+                  <div className="text-gray-400 text-xs sm:text-sm">TEAM</div>
+                  <div className="text-white font-semibold text-sm sm:text-base">YORK UNIVERSITY</div>
                 </div>
-                <div className="bg-black/50 rounded-lg p-4 border border-gray-700">
-                  <div className="text-gray-400 text-sm">SPECIALIZATION</div>
-                  <div className="text-white font-semibold">FULL STACK</div>
+                <div className="bg-black/50 rounded-lg p-3 sm:p-4 border border-gray-700">
+                  <div className="text-gray-400 text-xs sm:text-sm">SPECIALIZATION</div>
+                  <div className="text-white font-semibold text-sm sm:text-base">FULL STACK</div>
                 </div>
-                <div className="bg-black/50 rounded-lg p-4 border border-gray-700">
-                  <div className="text-gray-400 text-sm">STATUS</div>
-                  <div className="text-green-400 font-semibold">AVAILABLE</div>
+                <div className="bg-black/50 rounded-lg p-3 sm:p-4 border border-gray-700">
+                  <div className="text-gray-400 text-xs sm:text-sm">STATUS</div>
+                  <div className="text-green-400 font-semibold text-sm sm:text-base">AVAILABLE</div>
                 </div>
               </div>
 
               {/* Championship Badge */}
-              <div className="bg-gradient-to-r from-red-600 to-red-800 rounded-lg p-4 text-center">
-                <div className="text-yellow-300 text-2xl font-bold">🏆 WORLD CHAMPION</div>
-                <div className="text-red-100 text-sm">SOFTWARE DEVELOPMENT 2024</div>
+              <div className="bg-gradient-to-r from-red-600 to-red-800 rounded-lg p-3 sm:p-4 text-center">
+                <div className="text-yellow-300 text-lg sm:text-xl lg:text-2xl font-bold">🏆 WORLD CHAMPION</div>
+                <div className="text-red-100 text-xs sm:text-sm">SOFTWARE DEVELOPMENT 2024</div>
               </div>
             </div>
 
             {/* Racing Number Background */}
-            <div className="absolute -top-4 -right-4 text-[200px] font-bold text-red-600/10 -z-10 font-mono">01</div>
+            <div className="absolute -top-2 sm:-top-4 -right-2 sm:-right-4 text-[120px] sm:text-[160px] lg:text-[200px] font-bold text-red-600/10 -z-10 font-mono">01</div>
           </div>
 
           {/* Telemetry Dashboard */}
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6 order-1 lg:order-2">
             {/* F1 Traffic Light */}
-            <div className="bg-black rounded-2xl p-6 border border-red-600">
-              <h3 className="text-white text-xl font-bold mb-4 text-center">PERFORMANCE STATUS</h3>
-              <div className="flex justify-center space-x-3 mb-4">
+            <div className="bg-black rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-red-600">
+              <h3 className="text-white text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-center">PERFORMANCE STATUS</h3>
+              <div className="flex justify-center space-x-2 sm:space-x-3 mb-3 sm:mb-4">
                 {[1, 2, 3, 4, 5].map((light) => (
                   <div
                     key={light}
-                    className={`w-8 h-8 rounded-full border-2 transition-all duration-300 ${
+                    className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full border-2 transition-all duration-300 ${
                       trafficLight >= light && !isActive
                         ? 'bg-red-500 border-red-300 shadow-lg shadow-red-500/50'
                         : isActive
@@ -102,24 +102,24 @@ export default function DriverHero() {
                 ))}
               </div>
               <div className="text-center">
-                <div className={`font-mono text-lg font-bold ${isActive ? 'text-green-400' : 'text-red-400'}`}>
+                <div className={`font-mono text-sm sm:text-base lg:text-lg font-bold ${isActive ? 'text-green-400' : 'text-red-400'}`}>
                   {isActive ? 'ALL SYSTEMS GO!' : 'INITIALIZING...'}
                 </div>
               </div>
             </div>
 
             {/* Telemetry Grid */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               {telemetryData.map((data, index) => (
-                <div key={index} className="bg-gray-900 rounded-xl p-6 border border-gray-700">
-                  <div className="text-gray-400 text-sm font-mono mb-2">{data.label}</div>
-                  <div className={`text-4xl font-bold font-mono ${data.color} mb-1`}>
+                <div key={index} className="bg-gray-900 rounded-lg sm:rounded-xl p-4 sm:p-6 border border-gray-700">
+                  <div className="text-gray-400 text-xs sm:text-sm font-mono mb-2">{data.label}</div>
+                  <div className={`text-2xl sm:text-3xl lg:text-4xl font-bold font-mono ${data.color} mb-1`}>
                     {data.value}
                   </div>
                   <div className="text-gray-500 text-xs font-mono">{data.unit}</div>
                   
                   {/* Performance Bar */}
-                  <div className="mt-3 h-2 bg-gray-800 rounded-full overflow-hidden">
+                  <div className="mt-2 sm:mt-3 h-1.5 sm:h-2 bg-gray-800 rounded-full overflow-hidden">
                     <div 
                       className={`h-full ${data.color.replace('text-', 'bg-')} rounded-full animate-pulse`}
                       style={{ width: `${Math.min(parseInt(data.value) || 90, 100)}%` }}

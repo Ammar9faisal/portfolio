@@ -123,66 +123,69 @@ export default function SkillsSection() {
   };
 
   return (
-    <section id="skills" className="py-20 px-4 bg-gradient-to-b from-gray-900 to-black">
+    <section id="skills" className="py-12 sm:py-16 lg:py-20 px-4 bg-gradient-to-b from-gray-900 to-black">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold text-white mb-4 tracking-wide font-mono">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-wide font-mono">
             TECHNICAL <span className="text-red-500">SPECIFICATIONS</span>
           </h2>
-          <p className="text-gray-400 text-xl">Performance metrics and engineering excellence</p>
-          <div className="w-32 h-1 bg-red-500 mx-auto mt-6"></div>
+          <p className="text-gray-400 text-base sm:text-lg lg:text-xl">Performance metrics and engineering excellence</p>
+          <div className="w-24 sm:w-32 h-1 bg-red-500 mx-auto mt-4 sm:mt-6"></div>
         </div>
 
         {/* Skills Categories */}
-        <div className="mb-16">
+        <div className="mb-12 sm:mb-16">
           {/* Category Selector */}
-          <div className="flex justify-center mb-8">
-            <div className="bg-gray-900 rounded-lg p-2 border border-gray-700">
-              {skillCategories.map((category, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveCategory(index)}
-                  className={`px-6 py-3 rounded-lg font-mono text-sm font-semibold transition-all duration-300 ${
-                    activeCategory === index
-                      ? `bg-gradient-to-r ${getColorClasses(category.color).gradient} text-white`
-                      : 'text-gray-400 hover:text-white'
-                  }`}
-                >
-                  <span className="text-lg mr-2">{category.icon}</span>
-                  {category.title}
-                </button>
-              ))}
+          <div className="flex justify-center mb-6 sm:mb-8">
+            <div className="bg-gray-900 rounded-lg p-1 sm:p-2 border border-gray-700 w-full max-w-4xl overflow-x-auto">
+              <div className="flex space-x-1 sm:space-x-0 min-w-max sm:min-w-0 sm:grid sm:grid-cols-3">
+                {skillCategories.map((category, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setActiveCategory(index)}
+                    className={`px-3 sm:px-4 lg:px-6 py-2 sm:py-3 rounded-lg font-mono text-xs sm:text-sm font-semibold transition-all duration-300 whitespace-nowrap sm:whitespace-normal flex-shrink-0 ${
+                      activeCategory === index
+                        ? `bg-gradient-to-r ${getColorClasses(category.color).gradient} text-white`
+                        : 'text-gray-400 hover:text-white'
+                    }`}
+                  >
+                    <span className="text-sm sm:text-base lg:text-lg mr-1 sm:mr-2">{category.icon}</span>
+                    <span className="hidden sm:inline">{category.title}</span>
+                    <span className="sm:hidden">{category.title.split(' ')[0]}</span>
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 
           {/* Active Category Display */}
-          <div className="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-gray-700">
-            <div className="text-center mb-8">
-              <div className="text-6xl mb-4">{skillCategories[activeCategory].icon}</div>
-              <h3 className="text-3xl font-bold text-white font-mono mb-2">
+          <div className="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-700">
+            <div className="text-center mb-6 sm:mb-8">
+              <div className="text-4xl sm:text-5xl lg:text-6xl mb-3 sm:mb-4">{skillCategories[activeCategory].icon}</div>
+              <h3 className="text-2xl sm:text-3xl font-bold text-white font-mono mb-2">
                 {skillCategories[activeCategory].title}
               </h3>
-              <p className="text-gray-400 text-lg">{skillCategories[activeCategory].subtitle}</p>
+              <p className="text-gray-400 text-base sm:text-lg">{skillCategories[activeCategory].subtitle}</p>
             </div>
 
             {/* Skills Grid */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {skillCategories[activeCategory].skills.map((skill, index) => (
                 <div
                   key={index}
-                  className="bg-black/50 rounded-lg p-6 border border-gray-700 hover:border-red-500 transition-all duration-300"
+                  className="bg-black/50 rounded-lg p-4 sm:p-6 border border-gray-700 hover:border-red-500 transition-all duration-300"
                 >
-                  <div className="flex justify-between items-center mb-3">
-                    <h4 className="text-white font-semibold font-mono">{skill.name}</h4>
-                    <span className={`font-bold font-mono ${getColorClasses(skillCategories[activeCategory].color).text}`}>
+                  <div className="flex justify-between items-start sm:items-center mb-3 flex-col sm:flex-row space-y-1 sm:space-y-0">
+                    <h4 className="text-white font-semibold font-mono text-sm sm:text-base">{skill.name}</h4>
+                    <span className={`font-bold font-mono text-sm ${getColorClasses(skillCategories[activeCategory].color).text}`}>
                       {skill.level}%
                     </span>
                   </div>
                   
                   {/* Skill Level Bar */}
                   <div className="mb-3">
-                    <div className="h-3 bg-gray-800 rounded-full overflow-hidden">
+                    <div className="h-2 sm:h-3 bg-gray-800 rounded-full overflow-hidden">
                       <div
                         className={`h-full bg-gradient-to-r ${getColorClasses(skillCategories[activeCategory].color).gradient} rounded-full transition-all duration-1000 ease-out`}
                         style={{ 
@@ -203,34 +206,34 @@ export default function SkillsSection() {
         </div>
 
         {/* Career Timeline - Racing Circuit */}
-        <div className="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-gray-700">
-          <h3 className="text-3xl font-bold text-white text-center mb-8 font-mono">
+        <div className="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-700">
+          <h3 className="text-2xl sm:text-3xl font-bold text-white text-center mb-6 sm:mb-8 font-mono">
             🏁 CAREER RACE CIRCUIT
           </h3>
           
           <div className="relative">
             {/* Circuit Track */}
-            <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-gray-600"></div>
+            <div className="absolute left-4 sm:left-1/2 transform sm:-translate-x-px h-full w-0.5 bg-gray-600"></div>
             
-            <div className="space-y-8">
+            <div className="space-y-6 sm:space-y-8">
               {experience.map((exp, index) => (
                 <div key={index} className="relative flex items-center">
                   {/* Milestone Marker */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-red-600 rounded-full border-4 border-black z-10">
+                  <div className="absolute left-4 sm:left-1/2 transform sm:-translate-x-1/2 w-4 h-4 sm:w-6 sm:h-6 bg-red-600 rounded-full border-2 sm:border-4 border-black z-10">
                     <div className="w-full h-full bg-red-400 rounded-full animate-pulse"></div>
                   </div>
                   
                   {/* Content */}
-                  <div className={`w-5/12 ${index % 2 === 0 ? 'pr-8 text-right' : 'ml-auto pl-8'}`}>
-                    <div className="bg-black/50 rounded-lg p-6 border border-gray-700">
-                      <div className="text-red-400 font-bold font-mono text-lg mb-2">{exp.year}</div>
-                      <h4 className="text-white font-semibold text-xl mb-2">{exp.title}</h4>
+                  <div className={`pl-12 sm:pl-0 sm:w-5/12 ${index % 2 === 0 ? 'sm:pr-8 sm:text-right' : 'sm:ml-auto sm:pl-8'} w-full sm:w-auto`}>
+                    <div className="bg-black/50 rounded-lg p-4 sm:p-6 border border-gray-700">
+                      <div className="text-red-400 font-bold font-mono text-base sm:text-lg mb-2">{exp.year}</div>
+                      <h4 className="text-white font-semibold text-lg sm:text-xl mb-2">{exp.title}</h4>
                       <div className="text-gray-400 font-mono text-sm mb-3">{exp.company}</div>
-                      <p className="text-gray-300 text-sm">{exp.description}</p>
+                      <p className="text-gray-300 text-sm leading-relaxed">{exp.description}</p>
                       
                       {/* Achievement Badge */}
-                      <div className="mt-4">
-                        <span className="bg-red-600/20 text-red-400 px-3 py-1 rounded-full text-xs font-mono border border-red-600/30">
+                      <div className="mt-3 sm:mt-4">
+                        <span className="bg-red-600/20 text-red-400 px-2 sm:px-3 py-1 rounded-full text-xs font-mono border border-red-600/30">
                           {exp.milestone.replace('_', ' ')}
                         </span>
                       </div>
@@ -243,42 +246,42 @@ export default function SkillsSection() {
         </div>
 
         {/* Performance Dashboard */}
-        <div className="mt-16 bg-black rounded-2xl p-8 border-2 border-red-600">
-          <h3 className="text-3xl font-bold text-white text-center mb-8 font-mono">
+        <div className="mt-12 sm:mt-16 bg-black rounded-2xl p-4 sm:p-6 lg:p-8 border-2 border-red-600">
+          <h3 className="text-2xl sm:text-3xl font-bold text-white text-center mb-6 sm:mb-8 font-mono">
             📊 PERFORMANCE TELEMETRY
           </h3>
           
-          <div className="grid md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
             <div className="text-center">
-              <div className="bg-red-600 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-                <span className="text-white text-2xl font-bold font-mono">95%</span>
+              <div className="bg-red-600 rounded-full w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                <span className="text-white text-lg sm:text-2xl font-bold font-mono">95%</span>
               </div>
-              <div className="text-white font-semibold font-mono">CODE QUALITY</div>
-              <div className="text-gray-400 text-sm font-mono">Average Score</div>
+              <div className="text-white font-semibold font-mono text-sm sm:text-base">CODE QUALITY</div>
+              <div className="text-gray-400 text-xs sm:text-sm font-mono">Average Score</div>
             </div>
             
             <div className="text-center">
-              <div className="bg-green-600 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-                <span className="text-white text-2xl font-bold font-mono">24H</span>
+              <div className="bg-green-600 rounded-full w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                <span className="text-white text-lg sm:text-2xl font-bold font-mono">24H</span>
               </div>
-              <div className="text-white font-semibold font-mono">RESPONSE TIME</div>
-              <div className="text-gray-400 text-sm font-mono">Max Turnaround</div>
+              <div className="text-white font-semibold font-mono text-sm sm:text-base">RESPONSE TIME</div>
+              <div className="text-gray-400 text-xs sm:text-sm font-mono">Max Turnaround</div>
             </div>
             
             <div className="text-center">
-              <div className="bg-blue-600 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-                <span className="text-white text-2xl font-bold font-mono">99%</span>
+              <div className="bg-blue-600 rounded-full w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                <span className="text-white text-lg sm:text-2xl font-bold font-mono">99%</span>
               </div>
-              <div className="text-white font-semibold font-mono">UPTIME</div>
-              <div className="text-gray-400 text-sm font-mono">Project Reliability</div>
+              <div className="text-white font-semibold font-mono text-sm sm:text-base">UPTIME</div>
+              <div className="text-gray-400 text-xs sm:text-sm font-mono">Project Reliability</div>
             </div>
             
             <div className="text-center">
-              <div className="bg-yellow-600 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-                <span className="text-white text-2xl font-bold font-mono">∞</span>
+              <div className="bg-yellow-600 rounded-full w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                <span className="text-white text-lg sm:text-2xl font-bold font-mono">∞</span>
               </div>
-              <div className="text-white font-semibold font-mono">PASSION</div>
-              <div className="text-gray-400 text-sm font-mono">Unlimited Drive</div>
+              <div className="text-white font-semibold font-mono text-sm sm:text-base">PASSION</div>
+              <div className="text-gray-400 text-xs sm:text-sm font-mono">Unlimited Drive</div>
             </div>
           </div>
         </div>

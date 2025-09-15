@@ -141,24 +141,24 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 px-4 bg-gradient-to-b from-black to-gray-900">
+    <section id="contact" className="py-12 sm:py-16 lg:py-20 px-4 bg-gradient-to-b from-black to-gray-900">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold text-white mb-4 tracking-wide font-mono">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-wide font-mono">
             PIT CREW <span className="text-red-500">COMMUNICATIONS</span>
           </h2>
-          <p className="text-gray-400 text-xl">Ready for your next project? Let&apos;s establish radio contact!</p>
-          <div className="w-32 h-1 bg-red-500 mx-auto mt-6"></div>
+          <p className="text-gray-400 text-base sm:text-lg lg:text-xl">Ready for your next project? Let&apos;s establish radio contact!</p>
+          <div className="w-24 sm:w-32 h-1 bg-red-500 mx-auto mt-4 sm:mt-6"></div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12">
           {/* Communication Channels */}
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-8">
             {/* Radio Status Panel */}
-            <div className="bg-black rounded-2xl p-6 border border-red-600">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-white font-bold text-xl font-mono">📡 RADIO STATUS</h3>
+            <div className="bg-black rounded-2xl p-4 sm:p-6 border border-red-600">
+              <div className="flex items-center justify-between mb-4 flex-col sm:flex-row space-y-2 sm:space-y-0">
+                <h3 className="text-white font-bold text-lg sm:text-xl font-mono">📡 RADIO STATUS</h3>
                 <div className="flex items-center space-x-2">
                   <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
                   <span className="text-green-400 font-mono text-sm">ONLINE</span>
@@ -205,41 +205,41 @@ export default function ContactSection() {
 
             {/* Contact Methods */}
             <div className="space-y-4">
-              <h3 className="text-white font-bold text-xl font-mono mb-6">🎯 COMMUNICATION CHANNELS</h3>
+              <h3 className="text-white font-bold text-lg sm:text-xl font-mono mb-4 sm:mb-6">🎯 COMMUNICATION CHANNELS</h3>
               {contactMethods.map((method, index) => (
-                <div key={index} className="bg-gray-900 rounded-lg p-6 border border-gray-700 hover:border-red-500 transition-colors">
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="flex items-center space-x-3">
-                      <span className="text-2xl">{method.icon}</span>
+                <div key={index} className="bg-gray-900 rounded-lg p-4 sm:p-6 border border-gray-700 hover:border-red-500 transition-colors">
+                  <div className="flex items-center justify-between mb-3 flex-col sm:flex-row space-y-2 sm:space-y-0">
+                    <div className="flex items-center space-x-3 w-full sm:w-auto">
+                      <span className="text-xl sm:text-2xl">{method.icon}</span>
                       <div>
                         <div className="text-gray-400 font-mono text-xs">{method.channel}</div>
-                        <div className="text-white font-semibold">{method.type}</div>
+                        <div className="text-white font-semibold text-sm sm:text-base">{method.type}</div>
                       </div>
                     </div>
-                    <div className="text-right">
+                    <div className="text-left sm:text-right w-full sm:w-auto">
                       <div className="text-green-400 font-mono text-xs">{method.status}</div>
                       <div className="text-gray-500 font-mono text-xs">{method.frequency}</div>
                     </div>
                   </div>
-                  <div className="text-red-400 font-mono font-semibold">{method.value}</div>
+                  <div className="text-red-400 font-mono font-semibold text-sm break-all">{method.value}</div>
                 </div>
               ))}
             </div>
 
             {/* Social Racing Team */}
-            <div className="bg-gray-900 rounded-lg p-6 border border-gray-700">
-              <h4 className="text-white font-bold text-lg font-mono mb-4">🏁 RACING TEAM SOCIAL</h4>
-              <div className="grid grid-cols-2 gap-3">
+            <div className="bg-gray-900 rounded-lg p-4 sm:p-6 border border-gray-700">
+              <h4 className="text-white font-bold text-base sm:text-lg font-mono mb-4">🏁 RACING TEAM SOCIAL</h4>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {socialLinks.map((social, index) => (
                   <a
                     key={index}
                     href={social.url}
                     className="flex items-center space-x-3 p-3 bg-black/50 rounded-lg hover:bg-red-600/20 hover:border-red-500 border border-gray-700 transition-all duration-300"
                   >
-                    <span className="text-xl">{social.icon}</span>
+                    <span className="text-lg sm:text-xl">{social.icon}</span>
                     <div>
                       <div className="text-white font-semibold text-sm">{social.platform}</div>
-                      <div className="text-gray-400 font-mono text-xs">{social.handle}</div>
+                      <div className="text-gray-400 font-mono text-xs truncate">{social.handle}</div>
                     </div>
                   </a>
                 ))}
@@ -247,28 +247,28 @@ export default function ContactSection() {
             </div>
 
             {/* Availability Status */}
-            <div className="bg-gradient-to-r from-green-600 to-green-800 rounded-lg p-6">
-              <div className="flex items-center space-x-3">
-                <div className="w-4 h-4 bg-green-300 rounded-full animate-ping"></div>
+            <div className="bg-gradient-to-r from-green-600 to-green-800 rounded-lg p-4 sm:p-6">
+              <div className="flex items-start sm:items-center space-x-3">
+                <div className="w-4 h-4 bg-green-300 rounded-full animate-ping flex-shrink-0 mt-1 sm:mt-0"></div>
                 <div>
-                  <h4 className="text-white font-bold text-lg">🟢 DRIVER STATUS: AVAILABLE</h4>
-                  <p className="text-green-100 text-sm">Ready to race on new projects • Response time: 2.3 seconds</p>
+                  <h4 className="text-white font-bold text-base sm:text-lg">🟢 DRIVER STATUS: AVAILABLE</h4>
+                  <p className="text-green-100 text-sm">Ready to race on new projects • Response time: 24 hours</p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Mission Control Form */}
-          <div className="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-red-600">
+          <div className="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-4 sm:p-6 lg:p-8 border border-red-600">
             <div className="flex items-center space-x-3 mb-6">
-              <span className="text-3xl">🎮</span>
+              <span className="text-2xl sm:text-3xl">🎮</span>
               <div>
-                <h3 className="text-white font-bold text-2xl font-mono">MISSION CONTROL</h3>
+                <h3 className="text-white font-bold text-xl sm:text-2xl font-mono">MISSION CONTROL</h3>
                 <p className="text-gray-400 font-mono text-sm">Initialize project transmission</p>
               </div>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
               {/* Web3Forms Access Key */}
               <input 
                 type="hidden" 
@@ -307,7 +307,7 @@ export default function ContactSection() {
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className="w-full bg-black border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-red-500 focus:outline-none transition-colors font-mono"
+                  className="w-full bg-black border border-gray-600 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-white focus:border-red-500 focus:outline-none transition-colors font-mono text-sm sm:text-base"
                   placeholder="Enter pilot identification..."
                   required
                 />
@@ -322,7 +322,7 @@ export default function ContactSection() {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full bg-black border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-red-500 focus:outline-none transition-colors font-mono"
+                  className="w-full bg-black border border-gray-600 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-white focus:border-red-500 focus:outline-none transition-colors font-mono text-sm sm:text-base"
                   placeholder="pilot@racingteam.com"
                   required
                 />
@@ -337,7 +337,7 @@ export default function ContactSection() {
                   name="subject"
                   value={formData.subject}
                   onChange={handleInputChange}
-                  className="w-full bg-black border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-red-500 focus:outline-none transition-colors font-mono"
+                  className="w-full bg-black border border-gray-600 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-white focus:border-red-500 focus:outline-none transition-colors font-mono text-sm sm:text-base"
                   placeholder="Project classification..."
                   required
                 />
@@ -351,8 +351,8 @@ export default function ContactSection() {
                   name="message"
                   value={formData.message}
                   onChange={handleInputChange}
-                  rows={5}
-                  className="w-full bg-black border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-red-500 focus:outline-none transition-colors font-mono resize-none"
+                  rows={4}
+                  className="w-full bg-black border border-gray-600 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-white focus:border-red-500 focus:outline-none transition-colors font-mono resize-none text-sm sm:text-base"
                   placeholder="Transmit project specifications and race objectives..."
                   required
                 />
@@ -361,7 +361,7 @@ export default function ContactSection() {
               <button
                 type="submit"
                 disabled={radioStatus === 'TRANSMITTING'}
-                className="w-full bg-gradient-to-r from-red-600 to-red-800 hover:from-red-700 hover:to-red-900 disabled:from-gray-600 disabled:to-gray-700 text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 disabled:scale-100 font-mono"
+                className="w-full bg-gradient-to-r from-red-600 to-red-800 hover:from-red-700 hover:to-red-900 disabled:from-gray-600 disabled:to-gray-700 text-white font-bold py-3 sm:py-4 px-4 sm:px-6 rounded-lg transition-all duration-300 transform hover:scale-105 disabled:scale-100 font-mono text-sm sm:text-base"
               >
                 {radioStatus === 'TRANSMITTING' ? '📡 TRANSMITTING...' : 
                  radioStatus === 'MESSAGE_SENT' ? '✅ TRANSMISSION COMPLETE' :
@@ -371,10 +371,10 @@ export default function ContactSection() {
             </form>
 
             {/* Response Time Display */}
-            <div className="mt-6 p-4 bg-black/50 rounded-lg border border-gray-700">
+            <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-black/50 rounded-lg border border-gray-700">
               <div className="text-center">
                 <div className="text-gray-400 text-sm font-mono">EXPECTED RESPONSE TIME</div>
-                <div className="text-red-400 font-bold font-mono text-lg">⚡ 2.3 SECONDS</div>
+                <div className="text-red-400 font-bold font-mono text-base sm:text-lg">⚡ 24 HOURS</div>
                 <div className="text-gray-500 text-xs font-mono">Average pit stop efficiency</div>
               </div>
             </div>
@@ -382,17 +382,17 @@ export default function ContactSection() {
         </div>
 
         {/* Racing Footer */}
-        <div className="mt-16 text-center border-t border-gray-700 pt-8">
+        <div className="mt-12 sm:mt-16 text-center border-t border-gray-700 pt-6 sm:pt-8">
           <div className="mb-4">
             <div className="text-gray-400 font-mono text-sm">
               © 2024 Ammar Faisal Racing Team • All rights reserved
             </div>
           </div>
           
-          <div className="flex justify-center items-center space-x-4">
-            <div className="w-20 h-1 bg-red-500"></div>
-            <span className="text-white font-mono text-sm">PORTFOLIO</span>
-            <div className="w-20 h-1 bg-red-500"></div>
+          <div className="flex justify-center items-center space-x-2 sm:space-x-4">
+            <div className="w-12 sm:w-20 h-1 bg-red-500"></div>
+            <span className="text-white font-mono text-xs sm:text-sm">PORTFOLIO</span>
+            <div className="w-12 sm:w-20 h-1 bg-red-500"></div>
           </div>
         </div>
       </div>
