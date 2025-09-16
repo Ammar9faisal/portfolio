@@ -235,8 +235,16 @@ export default function SkillsSection() {
                     <div className="w-full h-full bg-red-400 rounded-full animate-pulse"></div>
                   </div>
                   
-                  {/* Content */}
-                  <div className={`w-5/12 ${index % 2 === 0 ? 'pr-8 text-right' : 'ml-auto pl-8'}`}>
+                  {/* Content - Mobile: all right, Desktop: alternating */}
+                  <div className={`
+                    w-full sm:w-5/12 
+                    pl-8 
+                    ml-auto
+                    ${index % 2 === 0 
+                      ? 'sm:ml-0 sm:pr-8 sm:pl-0 sm:text-right' 
+                      : 'sm:ml-auto sm:pl-8'
+                    }
+                  `}>
                     <div className="bg-black/50 rounded-lg p-6 border border-gray-700">
                       <div className="text-red-400 font-bold font-mono text-lg mb-2">{exp.year}</div>
                       <h4 className="text-white font-semibold text-xl mb-2">{exp.title}</h4>
