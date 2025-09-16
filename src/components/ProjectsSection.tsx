@@ -34,7 +34,7 @@ export default function ProjectsSection() {
       engine: "Node.js",
       aerodynamics: "Socket.io",
       strategy: "MongoDB",
-      image: "/projects/neurogait.jpg", // Add your project image here
+      image: "/projects/neurogait.png", // Add your project image here
       performance: {
         loadTime: "0.8s",
         uptime: "99.7%",
@@ -54,7 +54,7 @@ export default function ProjectsSection() {
       engine: "React",
       aerodynamics: "D3.js",
       strategy: "Firebase",
-      image: "/projects/dash2dorm.jpg", // Add your project image here
+      image: "/projects/dash2dorm.png", // Add your project image here
       performance: {
         loadTime: "1.5s",
         uptime: "99.5%",
@@ -177,38 +177,6 @@ export default function ProjectsSection() {
                   {project.description}
                 </p>
 
-                {/* Performance Metrics */}
-                <div className="bg-gray-900/50 rounded-lg p-3 sm:p-4 mb-4 sm:mb-6">
-                  <h4 className="text-green-400 text-xs sm:text-sm font-bold mb-2 sm:mb-3 font-mono">LAP TIMES</h4>
-                  <div className="grid grid-cols-3 gap-1 sm:gap-2 text-center text-xs">
-                    <div>
-                      <div className="text-green-400 font-bold font-mono text-xs sm:text-sm">{project.performance.loadTime}</div>
-                      <div className="text-gray-500 text-xs">LOAD</div>
-                    </div>
-                    <div>
-                      <div className="text-blue-400 font-bold font-mono text-xs sm:text-sm">{project.performance.uptime}</div>
-                      <div className="text-gray-500 text-xs">UPTIME</div>
-                    </div>
-                    <div>
-                      <div className="text-yellow-400 font-bold font-mono text-xs sm:text-sm">{project.performance.users}</div>
-                      <div className="text-gray-500 text-xs">USERS</div>
-                    </div>
-                  </div>
-                  
-                  {/* Performance Score */}
-                  <div className="mt-2 sm:mt-3">
-                    <div className="flex justify-between items-center mb-1">
-                      <span className="text-gray-400 text-xs">PERFORMANCE SCORE</span>
-                      <span className="text-red-400 font-bold text-xs sm:text-sm">{project.performance.score}%</span>
-                    </div>
-                    <div className="h-1.5 sm:h-2 bg-gray-800 rounded-full overflow-hidden">
-                      <div 
-                        className="h-full bg-gradient-to-r from-red-500 to-red-400 rounded-full transition-all duration-1000"
-                        style={{ width: `${project.performance.score}%` }}
-                      />
-                    </div>
-                  </div>
-                </div>
 
                 {/* Technology Stack */}
                 <div className="mb-4 sm:mb-6">
