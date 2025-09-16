@@ -25,76 +25,83 @@ export default function SkillsSection() {
   const skillCategories = [
     {
       title: "ENGINE POWER",
-      subtitle: "Backend Systems",
+      subtitle: "Programming Languages",
       icon: "⚙️",
       color: "red",
       skills: [
-        { name: "Node.js", level: 95, experience: "5 years" },
-        { name: "Python", level: 88, experience: "4 years" },
-        { name: "PostgreSQL", level: 92, experience: "5 years" },
-        { name: "MongoDB", level: 85, experience: "3 years" },
-        { name: "Express.js", level: 90, experience: "4 years" },
-        { name: "REST APIs", level: 95, experience: "5 years" }
+        { name: "Python", level: 90, experience: "3+ years" },
+        { name: "JavaScript", level: 88, experience: "3+ years" },
+        { name: "TypeScript", level: 85, experience: "2+ years" },
+        { name: "HTML/CSS", level: 92, experience: "3+ years" },
+        { name: "Java", level: 70, experience: "2+ years" },
+        { name: "SQL", level: 70, experience: "2+ years" }
       ]
     },
     {
       title: "AERODYNAMICS",
-      subtitle: "Frontend Performance",
+      subtitle: "Frameworks & Libraries",
       icon: "🏎️",
       color: "blue",
       skills: [
-        { name: "React.js", level: 98, experience: "5 years" },
-        { name: "Next.js", level: 94, experience: "3 years" },
-        { name: "TypeScript", level: 92, experience: "4 years" },
-        { name: "Tailwind CSS", level: 95, experience: "3 years" },
-        { name: "Vue.js", level: 85, experience: "2 years" },
-        { name: "React Native", level: 80, experience: "2 years" }
+        { name: "React.js", level: 90, experience: "3+ years" },
+        { name: "Node.js", level: 85, experience: "2+ years" },
+        { name: "Express.js", level: 82, experience: "2+ years" },
+        { name: "OpenCV", level: 88, experience: "2+ years" },
+        { name: "MediaPipe", level: 60, experience: "1+ years" },
+        { name: "Jest", level: 50, experience: "1+ years" }
       ]
     },
     {
       title: "RACE STRATEGY",
-      subtitle: "Architecture & DevOps",
+      subtitle: "Tools & Platforms",
       icon: "📊",
       color: "green",
       skills: [
-        { name: "AWS", level: 88, experience: "3 years" },
-        { name: "Docker", level: 85, experience: "3 years" },
-        { name: "Git", level: 98, experience: "6 years" },
-        { name: "CI/CD", level: 87, experience: "3 years" },
-        { name: "Microservices", level: 82, experience: "2 years" },
-        { name: "System Design", level: 90, experience: "4 years" }
+        { name: "Git", level: 95, experience: "3+ years" },
+        { name: "Appwrite", level: 75, experience: "2+ years" },
+        { name: "Supabase", level: 60, experience: "1+ years" },
+        { name: "Firebase", level: 60, experience: "1+ years" },
+        { name: "REST APIs", level: 75, experience: "2+ years" },
+        { name: "Arduino", level: 80, experience: "2+ years" }
+      ]
+    },
+    {
+      title: "AI & DATA",
+      subtitle: "Machine Learning & Analytics",
+      icon: "🤖",
+      color: "purple",
+      skills: [
+        { name: "NumPy", level: 50, experience: "2+ years" },
+        { name: "Matplotlib", level: 50, experience: "2+ years" },
+        { name: "OpenCV", level: 50, experience: "2+ years" },
+        { name: "MediaPipe", level: 75, experience: "1+ years" },
+        { name: "Gemini API", level: 80, experience: "2+ years" },
+        { name: "Vellum.ai", level: 75, experience: "1+ years" }
       ]
     }
   ];
 
   const experience = [
     {
-      year: "2025 May - August",
-      title: "Engineering Research Mentor - k2i Academy",
+      year: "May 2025 - Present",
+      title: "Engineering Research Mentor",
+      company: "K2I Academy - York University",
+      description: "Mentored high school Lab Assistants in software engineering, embedded systems, and AI concepts. Led workshops using Micro:bit, Cutebot, and HuskyLens AI Image Lens for hands-on programming and sensor integration. Guided student projects through the Engineering Design Process (EDP) with a focus on AI's in advancing education.",
+      milestone: "CURRENT_POSITION"
+    },
+    {
+      year: "Sept 2023 - May 2027",
+      title: "Bachelor of Engineering in Software Engineering",
       company: "York University",
-      description: "Hi",
-      milestone: "POLE_POSITION"
+      description: "Studying Software Engineering with relevant coursework in Embedded Systems, Computer Organization, Data Structures and Algorithms. Active in engineering research and mentorship programs.",
+      milestone: "EDUCATION"
     },
     {
-      year: "2022",
-      title: "Full Stack Developer",
-      company: "Digital Solutions Inc",
-      description: "Developed e-commerce platforms and APIs",
-      milestone: "FASTEST_LAP"
-    },
-    {
-      year: "2020",
-      title: "Frontend Developer",
-      company: "StartUp Velocity",
-      description: "Built responsive web applications",
-      milestone: "FIRST_WIN"
-    },
-    {
-      year: "2019",
-      title: "Junior Developer",
-      company: "CodeCraft Studios",
-      description: "Started professional development journey",
-      milestone: "ROOKIE_YEAR"
+      year: "2023 - Present",
+      title: "Independent Developer & Hackathon Participant",
+      company: "Various Projects",
+      description: "Developed multiple full-stack applications including AI-powered gait analysis systems, food delivery platforms with dynamic pricing, and wellness applications. Participated in hackathons like TerraHacks and Hack The 6ix.",
+      milestone: "PROJECT_PORTFOLIO"
     }
   ];
 
@@ -117,6 +124,12 @@ export default function SkillsSection() {
         text: 'text-green-400',
         border: 'border-green-600',
         gradient: 'from-green-600 to-green-700'
+      },
+      purple: {
+        bg: 'bg-purple-600',
+        text: 'text-purple-400',
+        border: 'border-purple-600',
+        gradient: 'from-purple-600 to-purple-700'
       }
     };
     return colors[color as keyof typeof colors];
@@ -240,47 +253,6 @@ export default function SkillsSection() {
                   </div>
                 </div>
               ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Performance Dashboard */}
-        <div className="mt-16 bg-black rounded-2xl p-8 border-2 border-red-600">
-          <h3 className="text-3xl font-bold text-white text-center mb-8 font-mono">
-            📊 PERFORMANCE TELEMETRY
-          </h3>
-          
-          <div className="grid md:grid-cols-4 gap-6">
-            <div className="text-center">
-              <div className="bg-red-600 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-                <span className="text-white text-2xl font-bold font-mono">95%</span>
-              </div>
-              <div className="text-white font-semibold font-mono">CODE QUALITY</div>
-              <div className="text-gray-400 text-sm font-mono">Average Score</div>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-green-600 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-                <span className="text-white text-2xl font-bold font-mono">24H</span>
-              </div>
-              <div className="text-white font-semibold font-mono">RESPONSE TIME</div>
-              <div className="text-gray-400 text-sm font-mono">Max Turnaround</div>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-blue-600 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-                <span className="text-white text-2xl font-bold font-mono">99%</span>
-              </div>
-              <div className="text-white font-semibold font-mono">UPTIME</div>
-              <div className="text-gray-400 text-sm font-mono">Project Reliability</div>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-yellow-600 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-                <span className="text-white text-2xl font-bold font-mono">∞</span>
-              </div>
-              <div className="text-white font-semibold font-mono">PASSION</div>
-              <div className="text-gray-400 text-sm font-mono">Unlimited Drive</div>
             </div>
           </div>
         </div>

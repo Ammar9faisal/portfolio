@@ -5,15 +5,26 @@ import Image from 'next/image';
 
 export default function ProjectsSection() {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  const [expandedProjects, setExpandedProjects] = useState<Set<number>>(new Set());
+
+  const toggleProjectExpansion = (index: number) => {
+    const newExpanded = new Set(expandedProjects);
+    if (newExpanded.has(index)) {
+      newExpanded.delete(index);
+    } else {
+      newExpanded.add(index);
+    }
+    setExpandedProjects(newExpanded);
+  };
 
   const projects = [
     {
       name: "EunoiaHub",
       category: "FULL-STACK",
-      description: "High-performance e-commerce platform with real-time inventory management and lightning-fast checkout process.",
-      engine: "Next.js",
-      aerodynamics: "Tailwind CSS",
-      strategy: "PostgreSQL",
+      description: "Full-stack wellness application with secure authentication, AI chatbot integration, and scalable database management following SDLC and Agile methodologies.",
+      engine: "React.js",
+      aerodynamics: "Node.js",
+      strategy: "Appwrite Cloud",
       image: "/projects/eunoiahub.png", // Add your project image here
       performance: {
         loadTime: "1.2s",
@@ -22,18 +33,18 @@ export default function ProjectsSection() {
         score: 95
       },
       position: 1,
-      technologies: ["Next.js", "TypeScript", "Stripe", "PostgreSQL", "Redis"],
+      technologies: ["JavaScript", "Node.js", "React.js", "Appwrite", "Git", "RESTful APIs", "SQL"],
       github: "https://github.com/Ammar9faisal/EunoiaHub",
       demo: "https://eunoia-hub.vercel.app",
       status: "WINNER"
     },
     {
       name: "NeuroGait",
-      category: "FULL-STACK",
-      description: "WebSocket-powered chat application with file sharing, video calls, and real-time collaboration features.",
-      engine: "Node.js",
-      aerodynamics: "Socket.io",
-      strategy: "MongoDB",
+      category: "AI/ML",
+      description: "Gait analysis system with OpenCV and MediaPipe AI models achieving 90% accuracy in symptom recognition for early detection of neurological disorders.",
+      engine: "Python",
+      aerodynamics: "OpenCV",
+      strategy: "MediaPipe AI",
       image: "/projects/neurogait.png", // Add your project image here
       performance: {
         loadTime: "0.8s",
@@ -42,18 +53,18 @@ export default function ProjectsSection() {
         score: 92
       },
       position: 2,
-      technologies: ["Node.js", "Socket.io", "React", "MongoDB", "WebRTC"],
+      technologies: ["Python", "OpenCV", "MediaPipe", "TypeScript/React.js", "NumPy", "Matplotlib", "FastAPI", "WebSockets"],
       github: "https://github.com/Ammar9faisal/NeuroGait",
       demo: "https://devpost.com/software/neurogait",
       status: "PODIUM"
     },
     {
       name: "Dash2Dorm",
-      category: "FRONTEND",
-      description: "Interactive dashboard with real-time data visualization and advanced analytics for business intelligence.",
-      engine: "React",
-      aerodynamics: "D3.js",
-      strategy: "Firebase",
+      category: "FULL-STACK",
+      description: "Campus-first food delivery platform with AI dynamic pricing engine achieving 85% demand prediction accuracy and 25% cost reduction through transparent pricing.",
+      engine: "React.js",
+      aerodynamics: "Vite",
+      strategy: "Vellum.ai",
       image: "/projects/dash2dorm.png", // Add your project image here
       performance: {
         loadTime: "1.5s",
@@ -62,7 +73,7 @@ export default function ProjectsSection() {
         score: 88
       },
       position: 3,
-      technologies: ["React", "D3.js", "Firebase", "Chart.js", "Material-UI"],
+      technologies: ["TypeScript", "React.js", "Vellum.ai", "Supabase", "Vite", "Stripe", "Open-Meteo APIs"],
       github: "https://github.com/Ammar9faisal/Dash2Dorm_hackthe6ix",
       demo: "https://devpost.com/software/lloyd-draft",
       status: "PODIUM"
@@ -173,9 +184,21 @@ export default function ProjectsSection() {
                 </div>
 
                 {/* Description */}
-                <p className="text-gray-300 text-xs sm:text-sm mb-4 sm:mb-6 leading-relaxed line-clamp-3">
-                  {project.description}
-                </p>
+                <div className="mb-4 sm:mb-6">
+                  <p className={`text-gray-300 text-xs sm:text-sm leading-relaxed transition-all duration-300 ${
+                    expandedProjects.has(index) ? '' : 'line-clamp-3'
+                  }`}>
+                    {project.description}
+                  </p>
+                  {project.description.length > 120 && (
+                    <button
+                      onClick={() => toggleProjectExpansion(index)}
+                      className="text-red-400 hover:text-red-300 text-xs font-mono mt-2 transition-colors duration-200"
+                    >
+                      {expandedProjects.has(index) ? '🔼 SHOW LESS' : '🔽 READ MORE'}
+                    </button>
+                  )}
+                </div>
 
 
                 {/* Technology Stack */}
@@ -226,35 +249,6 @@ export default function ProjectsSection() {
           ))}
         </div>
 
-        {/* Championship Summary */}
-        <div className="bg-gradient-to-r from-black via-gray-900 to-black rounded-3xl p-8 border-2 border-red-600">
-          <h3 className="text-3xl font-bold text-white text-center mb-8 font-mono">
-            🏆 CHAMPIONSHIP STANDINGS
-          </h3>
-          
-          <div className="grid md:grid-cols-4 gap-6 text-center">
-            <div>
-              <div className="text-4xl mb-2">🏆</div>
-              <div className="text-3xl font-bold text-yellow-400 font-mono">12</div>
-              <div className="text-gray-400 text-sm font-mono">RACE WINS</div>
-            </div>
-            <div>
-              <div className="text-4xl mb-2">🥈</div>
-              <div className="text-3xl font-bold text-gray-300 font-mono">8</div>
-              <div className="text-gray-400 text-sm font-mono">PODIUMS</div>
-            </div>
-            <div>
-              <div className="text-4xl mb-2">⚡</div>
-              <div className="text-3xl font-bold text-blue-400 font-mono">25</div>
-              <div className="text-gray-400 text-sm font-mono">FASTEST LAPS</div>
-            </div>
-            <div>
-              <div className="text-4xl mb-2">🏁</div>
-              <div className="text-3xl font-bold text-green-400 font-mono">100%</div>
-              <div className="text-gray-400 text-sm font-mono">COMPLETION RATE</div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );

@@ -15,6 +15,35 @@ export default function F1Header({ isReady }: F1HeaderProps) {
     return () => clearInterval(timer);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['hero', 'projects', 'skills', 'contact'];
+      const scrollPosition = window.scrollY + 100; // Offset for header height
+
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(sectionId);
+            break;
+          }
+        }
+      }
+    };
+
+    // Set initial active section
+    handleScroll();
+
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    // Cleanup
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   const navItems = [
     { id: 'hero', label: 'DRIVER', icon: '👤' },
     { id: 'projects', label: 'GARAGE', icon: '🏗️' },
@@ -119,15 +148,22 @@ export default function F1Header({ isReady }: F1HeaderProps) {
             
             {/* Mobile Social Links */}
             <div className="flex items-center space-x-1">
-              <button className="w-8 h-8 bg-gray-800 hover:bg-red-600 rounded-lg flex items-center justify-center transition-colors">
+              <a 
+                href="https://github.com/Ammar9faisal" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-8 h-8 bg-gray-800 hover:bg-red-600 rounded-lg flex items-center justify-center transition-colors"
+              >
                 <span className="text-white text-sm">🐙</span>
-              </button>
-              <button className="w-8 h-8 bg-gray-800 hover:bg-red-600 rounded-lg flex items-center justify-center transition-colors">
+              </a>
+              <a 
+                href="https://linkedin.com/in/ammar9faisal" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-8 h-8 bg-gray-800 hover:bg-red-600 rounded-lg flex items-center justify-center transition-colors"
+              >
                 <span className="text-white text-sm">💼</span>
-              </button>
-              <button className="w-8 h-8 bg-gray-800 hover:bg-red-600 rounded-lg flex items-center justify-center transition-colors">
-                <span className="text-white text-sm">🐦</span>
-              </button>
+              </a>
             </div>
           </div>
 
@@ -151,15 +187,22 @@ export default function F1Header({ isReady }: F1HeaderProps) {
 
             {/* Pit Crew Social Links */}
             <div className="flex items-center space-x-2">
-              <button className="w-10 h-10 bg-gray-800 hover:bg-red-600 rounded-lg flex items-center justify-center transition-colors">
+              <a 
+                href="https://github.com/Ammar9faisal" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-gray-800 hover:bg-red-600 rounded-lg flex items-center justify-center transition-colors"
+              >
                 <span className="text-white">🐙</span>
-              </button>
-              <button className="w-10 h-10 bg-gray-800 hover:bg-red-600 rounded-lg flex items-center justify-center transition-colors">
+              </a>
+              <a 
+                href="https://linkedin.com/in/ammar9faisal" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-gray-800 hover:bg-red-600 rounded-lg flex items-center justify-center transition-colors"
+              >
                 <span className="text-white">💼</span>
-              </button>
-              <button className="w-10 h-10 bg-gray-800 hover:bg-red-600 rounded-lg flex items-center justify-center transition-colors">
-                <span className="text-white">🐦</span>
-              </button>
+              </a>
             </div>
           </div>
         </div>

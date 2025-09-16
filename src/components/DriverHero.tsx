@@ -19,11 +19,12 @@ export default function DriverHero() {
     return () => clearTimeout(lightSequence);
   }, [trafficLight]);
 
+  // 🎛️ TELEMETRY CONFIGURATION - Edit these percentages to adjust the performance bars
   const telemetryData = [
-    { label: 'EXPERIENCE', value: '5+', unit: 'YEARS', color: 'text-green-400' },
-    { label: 'PROJECTS', value: '100+', unit: 'COMPLETED', color: 'text-blue-400' },
-    { label: 'TECHNOLOGIES', value: '25+', unit: 'MASTERED', color: 'text-yellow-400' },
-    { label: 'CONTRIBUTIONS', value: '1000+', unit: 'COMMITS', color: 'text-red-400' }
+    { label: 'EXPERIENCE', value: '5+', unit: 'YEARS', color: 'text-green-400', percentage: 85 },
+    { label: 'PROJECTS', value: '10+', unit: 'COMPLETED', color: 'text-blue-400', percentage: 90 },
+    { label: 'TECHNOLOGIES', value: '15+', unit: 'MASTERED', color: 'text-yellow-400', percentage: 80 },
+    { label: 'CONTRIBUTIONS', value: '500+', unit: 'COMMITS', color: 'text-red-400', percentage: 75 }
   ];
 
   return (
@@ -122,7 +123,7 @@ export default function DriverHero() {
                   <div className="mt-2 sm:mt-3 h-1.5 sm:h-2 bg-gray-800 rounded-full overflow-hidden">
                     <div 
                       className={`h-full ${data.color.replace('text-', 'bg-')} rounded-full animate-pulse`}
-                      style={{ width: `${Math.min(parseInt(data.value) || 90, 100)}%` }}
+                      style={{ width: `${Math.min(data.percentage, 100)}%` }}
                     />
                   </div>
                 </div>
